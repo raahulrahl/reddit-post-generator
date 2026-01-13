@@ -1,0 +1,396 @@
+# Reddit Post Generator and Content Creation Skill
+# AI-powered team for web research and Reddit content creation
+
+# Basic Metadata
+id: reddit-post-generator-v1
+name: reddit-post-generator
+version: 1.0.0
+author: paras25619@gmail.com
+
+# Description
+description: |
+  A team of specialized agents that work together to research topics on the web
+  and create high-quality Reddit posts. Combines web research capabilities with
+  Reddit posting expertise to deliver informative, engaging, and community-focused
+  content tailored to specific subreddits.
+
+# Tags and Modes
+tags:
+  - reddit
+  - content-creation
+  - web-research
+  - social-media
+  - community-engagement
+  - team-agents
+  - multi-agent
+  - post-generation
+  - subreddit
+  - discussion-prompts
+
+input_modes:
+  - text/plain
+  - application/json
+
+output_modes:
+  - text/plain
+  - application/json
+  - text/markdown
+
+# Example Queries
+examples:
+  - "Create a post on web technologies and frameworks to focus in 2025 on the subreddit r/webdev"
+  - "Research AI ethics and create a discussion post for r/Futurology"
+  - "Generate an informative post about climate change for r/science"
+  - "Create a programming tutorial post for r/learnprogramming"
+  - "Research and post about gaming industry trends in r/gaming"
+  - "Generate a discussion prompt about healthy habits for r/GetMotivated"
+
+# Detailed Capabilities
+capabilities_detail:
+  web_research:
+    supported: true
+    search_methods:
+      - duckduckgo_search
+      - multi_source_verification
+      - recency_filtering
+    research_depth:
+      - quick_facts
+      - comprehensive_analysis
+      - multi_perspective_coverage
+    source_quality: "credibility and authority focused"
+
+  reddit_posting:
+    supported: true
+    posting_features:
+      - subreddit_rule_compliance
+      - markdown_formatting
+      - flair_selection
+      - engagement_optimization
+    content_types:
+      - informative_posts
+      - discussion_prompts
+      - tutorial_content
+      - news_sharing
+      - opinion_pieces
+
+  team_collaboration:
+    supported: true
+    team_structure:
+      - web_searcher_agent
+      - reddit_posting_agent
+    workflow:
+      - research_phase
+      - content_creation
+      - rule_compliance_check
+      - post_optimization
+      - submission_execution
+
+# Requirements
+requirements:
+  packages:
+    - agno>=2.2.0
+    - bindu>=2026.1.12
+    - praw>=7.7.0
+    - ddgs>=9.9.3
+    - openai>=2.11.0
+    - python-dotenv>=1.0.0
+  system: []
+  min_memory_mb: 512
+  external_services:
+    - Reddit API (via PRAW)
+    - DuckDuckGo Search API
+    - OpenAI API or OpenRouter API
+
+# Performance Metrics
+performance:
+  avg_processing_time_ms: 5000
+  avg_research_time_ms: 3000
+  avg_posting_time_ms: 2000
+  max_concurrent_requests: 3
+  memory_per_request_mb: 512
+  timeout_seconds: 180
+  max_research_sources: 10
+  scalability: horizontal
+
+# Tool Restrictions
+allowed_tools:
+  - DuckDuckGoTools
+  - RedditTools
+  - Search
+  - Research
+  - Create
+  - Post
+  - Submit
+  - Analyze
+
+# Rich Documentation
+documentation:
+  overview: |
+    This agent team specializes in creating high-quality Reddit content through
+    a coordinated workflow between web research and Reddit posting specialists.
+    The team first researches topics using web search tools, then crafts
+    engaging posts tailored to specific subreddit rules and community preferences.
+
+    Key advantages include automated rule compliance checking, multi-source
+    research verification, and community-appropriate tone adaptation for
+    maximum engagement and positive community reception.
+
+  use_cases:
+    when_to_use:
+      - Need to create well-researched Reddit posts on specific topics
+      - Want to ensure posts comply with subreddit rules and guidelines
+      - Need to research current information before posting
+      - Want to generate engaging discussion prompts for communities
+      - Need to create informative content with proper citations
+      - Want to automate content creation while maintaining quality
+      - Need to post to multiple subreddits with appropriate adaptations
+
+    when_not_to_use:
+      - Real-time social media monitoring or engagement
+      - Image or video content creation
+      - Spam or low-effort content generation
+      - Automated voting or comment manipulation
+      - Breaking Reddit's terms of service
+      - Personal account management
+      - Community moderation tasks
+      - Direct messaging or private communications
+
+  input_structure: |
+    Accepts Reddit post generation requests with topic specifications:
+
+    {
+      "topic": "Main topic or subject to research and post about",
+      "subreddit": "target_subreddit_name",
+      "post_type": "informative|discussion|question|tutorial|news",
+      "tone": "professional|casual|enthusiastic|neutral",
+      "research_depth": "quick|standard|comprehensive",
+      "post_length": "short|medium|long",
+      "include_sources": true,
+      "flair": "optional_flair_name",
+      "keywords": ["additional", "search", "terms"]
+    }
+
+    Query constraints:
+    - Max topic length: 200 characters
+    - Max research depth: 10 sources
+    - Timeout: 180 seconds
+    - Supported subreddits: All public subreddits (subject to API limits)
+    - Content compliance: Must follow Reddit content policy
+
+  output_format: |
+    Reddit Post Generation Report:
+    {
+      "success": true,
+      "post_details": {
+        "subreddit": "target_subreddit",
+        "title": "Generated post title",
+        "content": "Full post content in Reddit markdown",
+        "flair": "assigned_flair",
+        "post_length": 1500,
+        "readability_score": 0.85
+      },
+      "research_summary": {
+        "sources_used": 5,
+        "key_findings": ["finding_1", "finding_2", "finding_3"],
+        "verification_status": "verified",
+        "research_time_ms": 3200
+      },
+      "compliance_check": {
+        "subreddit_rules_passed": true,
+        "reddit_content_policy_passed": true,
+        "community_guidelines_passed": true,
+        "warnings": []
+      },
+      "engagement_prediction": {
+        "estimated_upvotes": 250,
+        "expected_comments": 45,
+        "controversy_score": 0.2,
+        "discussion_potential": "high"
+      },
+      "metadata": {
+        "query": "original_request",
+        "processing_time_ms": 5200,
+        "team_members": ["Web Searcher", "Reddit Agent"],
+        "post_status": "submitted|draft|pending_review"
+      }
+    }
+
+  error_handling:
+    - "API rate limits: Implements exponential backoff and request queuing"
+    - "Subreddit not found: Returns alternative suggestions and validation"
+    - "Rule violations: Provides specific rule explanations and suggestions"
+    - "Research limitations: Returns partial findings with confidence scores"
+    - "Authentication errors: Clear guidance on Reddit API setup"
+    - "Content policy violations: Suggests alternative approaches"
+    - "Network issues: Retry logic with progressive fallback"
+
+  examples:
+    - title: "Web Development Technologies Post"
+      input:
+        topic: "Web technologies and frameworks to focus on in 2025"
+        subreddit: "webdev"
+        post_type: "informative"
+        tone: "professional"
+        research_depth: "comprehensive"
+      output:
+        success: true
+        post_details:
+          subreddit: "webdev"
+          title: "The Most Promising Web Technologies to Master in 2025"
+          post_length: 1800
+        research_summary:
+          sources_used: 8
+          verification_status: "verified"
+        metadata:
+          processing_time_ms: 6500
+          post_status: "submitted"
+
+    - title: "Science Discussion Post"
+      input:
+        topic: "Recent advancements in quantum computing"
+        subreddit: "science"
+        post_type: "discussion"
+        tone: "neutral"
+        research_depth: "standard"
+        include_sources: true
+      output:
+        success: true
+        post_details:
+          subreddit: "science"
+          title: "Quantum Computing Breakthroughs: What's New and What's Next?"
+          post_length: 1200
+        research_summary:
+          sources_used: 6
+          key_findings: ["quantum_supremacy", "error_correction", "commercial_applications"]
+        metadata:
+          processing_time_ms: 4800
+          post_status: "submitted"
+
+    - title: "Gaming Community Post"
+      input:
+        topic: "Upcoming indie game releases"
+        subreddit: "gaming"
+        post_type: "news"
+        tone: "enthusiastic"
+        research_depth: "quick"
+      output:
+        success: true
+        post_details:
+          subreddit: "gaming"
+          title: "10 Indie Games You Should Watch For in the Coming Months"
+          post_length: 900
+        research_summary:
+          sources_used: 4
+          verification_status: "partial"
+        metadata:
+          processing_time_ms: 3500
+          post_status: "submitted"
+
+  best_practices:
+    for_developers:
+      - "Implement proper rate limiting for Reddit API calls"
+      - "Cache subreddit rule data to improve performance"
+      - "Validate all user inputs before processing"
+      - "Implement comprehensive error logging"
+      - "Use environment variables for sensitive credentials"
+      - "Test with Reddit's test subreddit before production"
+      - "Monitor API usage and implement cost optimization"
+
+    for_orchestrators:
+      - "Route content creation requests to this team"
+      - "Chain with moderation agents for pre-post review"
+      - "Consider post timing for maximum engagement"
+      - "Use engagement predictions for content optimization"
+      - "Implement quality gates using compliance checks"
+      - "Monitor post performance for continuous improvement"
+      - "Balance automated posting with community guidelines"
+
+  installation: |
+    Required packages:
+    pip install agno bindu praw ddgs openai python-dotenv
+
+    Environment variables:
+    OPENAI_API_KEY=your_openai_api_key
+    OPENROUTER_API_KEY=your_openrouter_api_key  # Alternative to OpenAI
+    REDDIT_CLIENT_ID=your_reddit_client_id
+    REDDIT_CLIENT_SECRET=your_reddit_client_secret
+    REDDIT_USERNAME=your_reddit_username
+    REDDIT_PASSWORD=your_reddit_password
+    REDDIT_USER_AGENT=your_user_agent_string
+
+    Reddit API Setup:
+    # Create app at: https://www.reddit.com/prefs/apps
+    # Use "script" type for personal use
+    # Set redirect URI to: http://localhost:8080
+    # Note: Respect Reddit's API rules and rate limits
+
+  versioning:
+    - version: "1.0.0"
+      date: "2026-01-13"
+      changes: "Initial release with web research and Reddit posting team"
+    - version: "1.1.0"
+      status: "planned"
+      changes: "Add image post support and crossposting capabilities"
+    - version: "1.2.0"
+      status: "planned"
+      changes: "Enhanced community analysis and engagement optimization"
+
+# Assessment fields for skill negotiation
+assessment:
+  keywords:
+    - reddit
+    - post
+    - generate
+    - create
+    - content
+    - research
+    - web
+    - search
+    - subreddit
+    - community
+    - discussion
+    - engagement
+    - social
+    - media
+    - team
+    - agent
+    - collaboration
+
+  specializations:
+    - domain: technology_content
+      confidence_boost: 0.3
+    - domain: science_education
+      confidence_boost: 0.2
+    - domain: entertainment_content
+      confidence_boost: 0.2
+    - domain: community_engagement
+      confidence_boost: 0.3
+
+  anti_patterns:
+    - "spam generation"
+    - "automated voting"
+    - "comment manipulation"
+    - "personal messaging"
+    - "account management"
+    - "moderation tasks"
+    - "image creation"
+    - "video production"
+
+  complexity_indicators:
+    simple:
+      - "quick post"
+      - "single topic"
+      - "minimal research"
+      - "standard subreddit"
+    medium:
+      - "comprehensive research"
+      - "multiple sources"
+      - "rule compliance"
+      - "engagement optimization"
+    complex:
+      - "team coordination"
+      - "multi-subreddit posting"
+      - "controversial topics"
+      - "compliance verification"
+      - "engagement prediction"
+      - "content optimization"

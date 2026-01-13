@@ -1,0 +1,70 @@
+{
+  "author": "paras25619@gmail.com",
+  "name": "reddit-post-generator",
+  "description": "Reddit Post Generator Agent is an AI-powered content creation assistant that crafts engaging, context-aware Reddit posts tailored to specific subreddits. It helps generate titles, post bodies, and discussion prompts while adapting tone, format, and rules of each community—making it easier to spark meaningful conversations and boost engagement on Reddit.",
+  "version": "1.0.0",
+  "recreate_keys": false,
+  "skills": [
+    "skills/reddit-post-generator"
+  ],
+  "capabilities": {},
+  "agent_trust": "low",
+  "debug_mode": true,
+  "debug_level": 2,
+  "deployment": {
+    "url": "http://0.0.0.0:3776",
+    "expose": true,
+    "protocol_version": "1.0.0",
+    "proxy_urls": ["0.0.0.0"],
+    "cors_origins": ["*"]
+  },
+  "storage": {
+    "type": "memory"
+  },
+  "scheduler": {
+    "type": "memory"
+  },
+  "num_history_sessions": 5,
+  "environment_variables": [
+    {
+      "key": "OPENAI_API_KEY",
+      "description": "OpenAI API key for LLM calls",
+      "required": false
+    },
+    {
+      "key": "OPENROUTER_API_KEY",
+      "description": "OpenRouter API key for LLM calls",
+      "required": false
+    },
+    {
+      "key": "MEM0_API_KEY",
+      "description": "Mem0 API key for memory operations",
+      "required": false
+    },
+    {
+      "key": "REDDIT_CLIENT_ID",
+      "description": "Reddit API client ID",
+      "required": true
+    },
+    {
+      "key": "REDDIT_CLIENT_SECRET",
+      "description": "Reddit API client secret",
+      "required": true
+    },
+    {
+      "key": "REDDIT_USERNAME",
+      "description": "Reddit account username",
+      "required": true
+    },
+    {
+      "key": "REDDIT_PASSWORD",
+      "description": "Reddit account password",
+      "required": true
+    },
+    {
+      "key": "REDDIT_USER_AGENT",
+      "description": "Reddit API user agent string",
+      "required": true
+    }
+  ]
+}
