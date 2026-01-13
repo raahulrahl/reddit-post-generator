@@ -90,7 +90,7 @@ async def initialize_agent() -> None:
     openai_api_key = os.getenv("OPENAI_API_KEY")
     openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
     model_name = os.getenv("MODEL_NAME", "openai/gpt-4o")
-    
+
     # Get Reddit API credentials
     reddit_client_id = os.getenv("REDDIT_CLIENT_ID")
     reddit_client_secret = os.getenv("REDDIT_CLIENT_SECRET")
@@ -248,7 +248,7 @@ async def cleanup() -> None:
 def create_argument_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""
     parser = argparse.ArgumentParser(description="Bindu Reddit Post Generator Agent")
-    
+
     parser.add_argument(
         "--openai-api-key",
         type=str,
@@ -302,7 +302,7 @@ def create_argument_parser() -> argparse.ArgumentParser:
         type=str,
         help="Path to agent_config.json (optional)",
     )
-    
+
     return parser
 
 
@@ -318,7 +318,7 @@ def set_environment_variables(args) -> None:
         "REDDIT_PASSWORD": args.reddit_password,
         "REDDIT_USER_AGENT": args.reddit_user_agent,
     }
-    
+
     for key, value in env_vars.items():
         if value:
             os.environ[key] = value
@@ -346,16 +346,16 @@ def main():
     """Run the main entry point for the Reddit Post Generator Agent."""
     parser = create_argument_parser()
     args = parser.parse_args()
-    
+
     # Set environment variables from CLI args
     set_environment_variables(args)
-    
+
     print("🤖 Reddit Post Generator - Web Research and Reddit Posting Agent")
     print("📝 Capabilities: Topic research, web search, Reddit post creation, community engagement")
-    
+
     # Load configuration
     config = load_config()
-    
+
     # Run the agent server
     run_agent_server(config)
 

@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from reddit_post_generator.main import handler, initialize_agent
+from reddit_post_generator.main import handler
 
 
 @pytest.mark.asyncio
