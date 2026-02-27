@@ -31,7 +31,7 @@ FROM raahulrahl/bindu-runtime-base:latest
 # OCI labels
 LABEL org.opencontainers.image.title="reddit-post-generator"
 LABEL org.opencontainers.image.description="Reddit Post Generator Agent is an AI-powered content creation assistant that crafts engaging, context-aware Reddit posts tailored to specific subreddits. It helps generate titles, post bodies, and discussion prompts while adapting tone, format, and rules of each community—making it easier to spark meaningful conversations and boost engagement on Reddit."
-LABEL org.opencontainers.image.authors="Paras Chamoli <paras25619@gmail.com>"
+LABEL org.opencontainers.image.authors="Paras Chamoli <paras@getbindu.com>"
 LABEL org.opencontainers.image.version="1.0.0"
 LABEL org.opencontainers.image.source="https://github.com/Paraschamoli/reddit-post-generator"
 LABEL org.opencontainers.image.licenses="MIT"
